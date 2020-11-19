@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
@@ -28,8 +27,7 @@ public class TestBasicForm {
         browser = Browser.CHROME;
 
         if (browser.equals(Browser.CHROME)) {
-            System.setProperty("webdriver.chrome.driver", "/opt/WebDriver/bin/chromedriver");
-            driver = new ChromeDriver();
+            driver = browser.getWebDriver();
             driver.get("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
